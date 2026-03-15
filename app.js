@@ -8,8 +8,9 @@ import uploads from "./multer.js"
 import cloudinary from "./cloudinary.js"
 const FRONT_END_URI = process.env.FRONT_END_URI;
 const app = express();
+const allowedOrigins = FRONT_END_URI.split(",")
 app.use(cors({
-    origin: FRONT_END_URI,
+    origin: allowedOrigins,
     credentials: true
 }));
 app.use(express.json());
